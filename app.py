@@ -1,7 +1,6 @@
 import streamlit as st
 from utils import model
 from PIL import Image
-import cv2
 
 
 st.set_page_config(
@@ -25,4 +24,4 @@ if uploaded_file:
     st.image(img)
     result = model(img)
     # result_img = Image.fromarray(result[0].plot()).convert("RGB")
-    st.image(result[0].plot())
+    st.image(result[0].plot()[..., ::-1])
